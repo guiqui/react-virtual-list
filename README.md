@@ -12,7 +12,8 @@ It can be easly customize by providing its own item renderer.
 - Easy to use.
 - Easy to Customize with Item Renderers.
 - Support thousand of records.
-
+## Demo
+Check out a working demo [here](https://guiqui.github.io/react-virtual-list/index.html)
 
 ## Installation
 ```javascript
