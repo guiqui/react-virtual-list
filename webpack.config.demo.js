@@ -10,7 +10,7 @@ module.exports ={
     }
   },
   output:{
-    path:path.resolve('dist'),
+    path:path.resolve('demo'),
     filename:'webpack-bundle.js'
   },
   devServer:{

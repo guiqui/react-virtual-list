@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --config webpack.config.demo.js ",
-    "prod": "webpack-dev-server --mode production --open",
+    "prod": "webpack --mode production --open --config webpack.config.demo.js ",
     "build": "webpack --mode production  --config webpack.config.build.js",
     "lint": "eslint src",
     "test": "jest && codecov",
