@@ -13,19 +13,19 @@ function TestItemRenderer(props){
 describe('VirtualListCore Initialise propertly ',()=>{
     it ('It mount properly when no property is given',()=>{
         const wrapper = shallow(<VirtualListCore />);
-        expect(wrapper.find('viewPort')).toBeDefined();
-        expect(wrapper.find('vlistItemContainer')).toBeDefined();
-        expect(wrapper.find('vlistItemContainer').children().length).toBe(0)
+        expect(wrapper.find('#viewPort')).toBeDefined();
+        expect(wrapper.find('#vlistItemContainer')).toBeDefined();
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
         expect(wrapper.state('currentIndx')).toBe(0);
        // expect(wrapper.instance().numVisibleItems).toBe(0)
     })
     it('Render propertly when adding data',()=>{
         const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}}/>);
-        expect(wrapper.find('vlistItemContainer').children().length).toBe(0)
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
     })
     it('Render propertly when adding data',()=>{
         const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}/>);
-        expect(wrapper.find('vlistItemContainer').children().length).toBe(0)
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
     })
 })
 
@@ -39,13 +39,13 @@ it('renders correctly', () => {
 
   });
 
-it('renders correctly', () => {
-    const data = []
-    for (let i=0;i<1000;i++){
-        data.push({name: `Row ${i}`});
-    }
-    const component =mount(<VirtualListCore data={data}  />)
-    component.find('#vListViewPort').simulate('scroll');
-    expect(component).toBeDefined()
+// it('renders correctly', () => {
+//     const data = []
+//     for (let i=0;i<1000;i++){
+//         data.push({name: `Row ${i}`});
+//     }
+//     const component =mount(<VirtualListCore data={data}  />)
+//     component.find('#vListViewPort').simulate('scroll');
+//     expect(component).toBeDefined()
 
-  });
+//   });
