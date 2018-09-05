@@ -1,8 +1,6 @@
 import React from 'react';
 import {VirtualListCore} from './VirtualList';
 import { shallow ,mount} from 'enzyme';
-import sinon from 'sinon'
-import 'jest-styled-components'
 
 const data = []
     for (let i=0;i<1000;i++){
