@@ -8,7 +8,7 @@
     "prod": "webpack-dev-server --mode production --open",
     "build": "webpack --mode production  --config webpack.config.build.js",
     "lint": "eslint src",
-    "test": "jest",
+    "test": "jest && codecov",
     "prepublish": "rm -rf ./dist && npm run build"
   },
   "peerDependencies": {
