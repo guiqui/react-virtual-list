@@ -7,6 +7,6 @@ module.exports = {
     },
     collectCoverage:true,
     coverageReporters: ["lcov", "text"],
-    setupFiles:["./scr/test/TestSetup.js"]//,
+    setupFiles:["./src/test/TestSetup.js"]//,
     //reporters=["jest-junit"]
 };

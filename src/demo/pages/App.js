@@ -1,20 +1,25 @@
 import React,{Component} from 'react';
-import Vlist from 'components/virtualize/Vlist';
+import VirtualList from 'lib/VirtualList';
+import ItemRenderer from './ItemRenderer';
 import './App.css'
+
 class App extends Component{
   constructor(props){
     super(props)
     this.data = []
-    for (let i=0;i<10000;i++){
+    for (let i=0;i<1000;i++){
       this.data.push({name: `Row ${i}`});
     }
   }
 
 
   render(){
+
     return (
       <div className="app-container">
-        <Vlist data={this.data} itemheight={30}/>
+       <h1>Virtual List</h1>
+       
+        <VirtualList className="list" data={this.data} itemheight={50} itemRenderer={ItemRenderer}/>
       </div>
 
     )

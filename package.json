@@ -4,16 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open --config webpack.config.demo.js ",
     "prod": "webpack-dev-server --mode production --open",
-    "build": "webpack --mode production",
-    "test": "jest"
+    "build": "npm run test & webpack --mode production  --config webpack.config.build.js",
+    "lint": "eslint src",
+    "test": "jest",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "css-layout": "^1.1.1",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-watch": "^4.0.2",
     "moment": "^2.22.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-sizeme": "^2.5.2",
     "react-test-renderer": "^16.4.0"
   },
   "devDependencies": {
@@ -28,9 +33,9 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "jest-fetch-mock": "^1.6.4",
