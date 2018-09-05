@@ -30,12 +30,13 @@ export class VirtualListCore extends Component{
         this.start=currentIndx;
         this.end=currentIndx+this.numVisibleItems>=datalength ? datalength-1:currentIndx+this.numVisibleItems;
     }
-    // shouldComponentUpdate(){
-    //     console.log('should')
-    //     return true;
-    // }
+
+  
+
     renderRows(){
         let result=[];
+        if (!this.props.itemRenderer)
+            return result;
         for (let i=this.start;i<this.end+1;i++){
            
             let item=this.props.data[i];
@@ -52,7 +53,7 @@ export class VirtualListCore extends Component{
     render(){
         this.recalculate();
         return (
-        <div id="vListViewPort" ref="viewPort" className={this.props.className}  
+        <div id="vListViewPort" ref="viewPort" className={this.props.className?this.props.className:''}  
             style={ {position: 'relative',overflow: 'scroll'}} 
             onScroll={this.scollPos} >
             <div id="vlistItemContainer" className="itemContainer" style={this.containerStyle}>
