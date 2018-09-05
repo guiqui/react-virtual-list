@@ -18,3 +18,50 @@ It can be easly customize by providing its own item renderer.
 ```javascript
 npm install react-vlist
 ```
+## Configuration
+
+```javascript
+    //1) Import the package
+    import Vlist from 'react-vlist'
+    //2) Create an Item renderer Component
+    class ItemRenderer extends Component{
+        constructor(props){    
+            super(props)
+        }
+
+
+        render(){
+            return (
+            <div  className='itemRenderer' style={this.props.style} >
+                <img className="itemImage" src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1" />
+                <div className="itemTitleContainer">  
+                    <div className="itemTitle">{this.props.data.name}</div>
+                    <div className="itemContent">{this.props.data.name}</div>
+                </div>
+            </div>)
+        }
+    }
+    //3) Use the Vlist in a component
+    class App extends Component{
+        constructor(props){
+            super(props)
+    //4) Create Some data
+            this.data = []
+            for (let i=0;i<1000;i++){
+            this.data.push({name: `Row ${i}`});
+            }
+        }
+
+
+        render(){
+    //5) Use the component 
+            return (
+            <div className="app-container">
+            <h1>Virtual List</h1>
+                <VirtualList className="list" data={this.data} itemheight={50} itemRenderer={ItemRenderer}/>
+            </div>
+
+            )
+        }
+    }
+```
