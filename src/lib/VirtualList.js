@@ -14,6 +14,8 @@ export class VirtualListCore extends Component{
     }
 
     scollPos=(e)=>{
+        if (e.target.id !=="vListViewPort")
+            return;
         let scrollTop=e.target.scrollTop;
         let currentIndx=Math.trunc(scrollTop/this.props.itemheight)
         if (currentIndx!==this.state.start){

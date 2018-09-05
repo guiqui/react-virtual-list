@@ -69,8 +69,20 @@ describe('Test Changing Size ',()=>{
 describe('Test scrolling',()=>{
     it ('Children should update position',()=>{
         const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
-        wrapper.simulate('scroll',{target:{scrollTop:60}})
+        wrapper.simulate('scroll',{target:{id:"vListViewPort",scrollTop:60}})
         let count=2;
+        wrapper.find('#vlistItemContainer').children().forEach((node) => {
+            expect(node.prop('data').name).toBe(`Row ${count}`);
+            count=count+1;
+          });
+
+
+    })
+
+    it ('Event from other target Should not trigger scroll',()=>{
+        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        wrapper.simulate('scroll',{target:{id:"other",scrollTop:60}})
+        let count=0;
         wrapper.find('#vlistItemContainer').children().forEach((node) => {
             expect(node.prop('data').name).toBe(`Row ${count}`);
             count=count+1;
