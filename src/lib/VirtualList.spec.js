@@ -2,12 +2,14 @@ import React from 'react';
 import {VirtualListCore} from './VirtualList';
 import { shallow ,mount} from 'enzyme';
 import sinon from 'sinon'
+import 'jest-styled-components'
+
 const data = []
     for (let i=0;i<1000;i++){
         data.push({name: `Row ${i}`});
     }
 function TestItemRenderer(props){
-    return <div>{props.name}</div>
+    return <div  style={props.style}>{props.data.name}</div>
 }    
 
 describe('VirtualListCore Initialise propertly ',()=>{
@@ -25,27 +27,57 @@ describe('VirtualListCore Initialise propertly ',()=>{
     })
     it('Render propertly when adding data',()=>{
         const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}/>);
-        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12);
+        let count=0;
+        wrapper.find('#vlistItemContainer').children().forEach((node) => {
+            expect(node.prop('style')).toBeDefined();
+            expect(node.prop('style').height).toBe(30);
+            expect(node.prop('style').top).toBe(count*30);
+            count=count+1;
+            //expect(node.prop('style').toHaveStyleRule('height', 30);
+          });
     })
 })
 
-it('renders correctly', () => {
-    const component =shallow(<VirtualListCore  />)
-    expect(1).toBe(1);
-    expect(component.find('viewPort')).toBeDefined();
-    expect(component.find('vlistItemContainer')).toBeDefined();
-    
+describe('Test Changing Data ',()=>{
+    it ('We should render children when changing data',()=>{
+        const wrapper = shallow(<VirtualListCore itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
+        wrapper.setProps({ data: data});
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
+
+    })
+})
+
+describe('Test Changing Size ',()=>{
+    it ('We should render children when changing sizes',()=>{
+        const wrapper = shallow(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
+        wrapper.setProps({ size: {height:600}});
+        expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(22)
+        let count=0;
+        wrapper.find('#vlistItemContainer').children().forEach((node) => {
+            expect(node.prop('data').name).toBe(`Row ${count}`);
+            expect(node.prop('style')).toBeDefined();
+            expect(node.prop('style').height).toBe(30);
+            expect(node.prop('style').top).toBe(count*30);
+            count=count+1;
+            //expect(node.prop('style').toHaveStyleRule('height', 30);
+          });
+
+    })
+})
+
+describe('Test scrolling',()=>{
+    it ('Children should update position',()=>{
+        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        wrapper.simulate('scroll',{target:{scrollTop:60}})
+        let count=2;
+        wrapper.find('#vlistItemContainer').children().forEach((node) => {
+            expect(node.prop('data').name).toBe(`Row ${count}`);
+            count=count+1;
+          });
 
 
-  });
-
-// it('renders correctly', () => {
-//     const data = []
-//     for (let i=0;i<1000;i++){
-//         data.push({name: `Row ${i}`});
-//     }
-//     const component =mount(<VirtualListCore data={data}  />)
-//     component.find('#vListViewPort').simulate('scroll');
-//     expect(component).toBeDefined()
-
-//   });
+    })
+})

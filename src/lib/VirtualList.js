@@ -13,8 +13,9 @@ export class VirtualListCore extends Component{
         this.containerStyle={height:calcHeight}
     }
 
-    scollPos=()=>{
-        let currentIndx=Math.trunc(this.refs.viewPort.scrollTop/this.props.itemheight)
+    scollPos=(e)=>{
+        let scrollTop=e.target.scrollTop;
+        let currentIndx=Math.trunc(scrollTop/this.props.itemheight)
         if (currentIndx!==this.state.start){
             this.setState({currentIndx:currentIndx})
         }
@@ -37,6 +38,8 @@ export class VirtualListCore extends Component{
         let result=[];
         if (!this.props.itemRenderer)
             return result;
+        if (!this.props.data)
+            return result;
         for (let i=this.start;i<this.end+1;i++){
            
             let item=this.props.data[i];
@@ -53,7 +56,7 @@ export class VirtualListCore extends Component{
     render(){
         this.recalculate();
         return (
-        <div id="vListViewPort" ref="viewPort" className={this.props.className?this.props.className:''}  
+        <div id="vListViewPort"  className={this.props.className?this.props.className:''}  
             style={ {position: 'relative',overflow: 'scroll'}} 
             onScroll={this.scollPos} >
             <div id="vlistItemContainer" className="itemContainer" style={this.containerStyle}>
