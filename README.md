@@ -14,7 +14,8 @@ It can be easly customize by providing its own item renderer.
 - Support thousand of records.
 ## Demo
 Check out a working demo [here](https://guiqui.github.io/react-virtual-list/index.html)
-
+## Some Demo Code
+[![Edit 5xnwjvjxwx](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/5xnwjvjxwx)
 ## Installation
 ```javascript
 npm install react-vlist
