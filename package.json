@@ -1,27 +1,26 @@
 {
-  "name": "react-virtual-list",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "react-vlist",
+  "version": "0.1.2",
+  "description": "A virtual list component with customizable item renderers",
+  "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --config webpack.config.demo.js ",
     "prod": "webpack-dev-server --mode production --open",
-    "build": "npm run test & webpack --mode production  --config webpack.config.build.js",
+    "build": "webpack --mode production  --config webpack.config.build.js",
     "lint": "eslint src",
     "test": "jest",
-    "prepublish": "npm run build"
+    "prepublish": "rm -rf ./dist && npm run build"
+  },
+  "peerDependencies":{
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   },
   "dependencies": {
-    "css-layout": "^1.1.1",
-    "eslint-plugin-flowtype": "^2.50.0",
-    "eslint-watch": "^4.0.2",
-    "moment": "^2.22.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-sizeme": "^2.5.2",
-    "react-test-renderer": "^16.4.0"
+
   },
   "devDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.1",
@@ -29,6 +28,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "css-layout": "^1.1.1",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-watch": "^4.0.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
