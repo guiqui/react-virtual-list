@@ -19,7 +19,7 @@ describe('VirtualListCore Initialise propertly ',()=>{
         expect(wrapper.state('currentIndx')).toBe(0);
        // expect(wrapper.instance().numVisibleItems).toBe(0)
     })
-    it('Render propertly when adding data',()=>{
+    it('Render propertly when no item renderer',()=>{
         const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}}/>);
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
     })

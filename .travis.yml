@@ -4,6 +4,7 @@ node_js:
   - 'stable'
 install:
   - npm install -g codecov
+  - npm install sinon
 cache:
   directories:
     - node_modules
