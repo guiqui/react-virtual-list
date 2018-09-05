@@ -7,9 +7,11 @@
 This is a list component that support viartualize rendering.
 It can be easly customize by providing its own item renderer.
 
-- Blazingly fast. 😛
+- Super fast. 😛
 - Responsive Components!
 - Easy to use.
+- Easy to Customize with Item Renderers.
+- Support thousand of records.
 
 
 ## Installation
