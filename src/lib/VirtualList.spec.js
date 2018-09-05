@@ -1,8 +1,20 @@
 import React from 'react';
-import VirtualList from './VirtualList';
-import renderer from 'react-test-renderer';
-test('Testing for init without params',()=>{
-    const component=renderer.create(<VirtualList />)
+import {VirtualListCore} from './VirtualList';
+import { shallow } from 'enzyme';
+
+
+it('renders correctly', () => {
+    const tree =shallow(<VirtualListCore  />)
     expect(1).toBe(1);
 
-})
+  });
+
+it('renders correctly', () => {
+    const data = []
+    for (let i=0;i<1000;i++){
+        data.push({name: `Row ${i}`});
+    }
+    const tree =shallow(<VirtualListCore data={data}  />)
+    expect(tree).toBeDefined()
+
+  });
