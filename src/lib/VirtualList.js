@@ -52,10 +52,10 @@ export class VirtualListCore extends Component{
     render(){
         this.recalculate();
         return (
-        <div ref="viewPort" className={this.props.className}  
+        <div id="vListViewPort" ref="viewPort" className={this.props.className}  
             style={ {position: 'relative',overflow: 'scroll'}} 
             onScroll={this.scollPos} >
-            <div className="itemContainer" style={this.containerStyle}>
+            <div id="vlistItemContainer" className="itemContainer" style={this.containerStyle}>
                 {this.renderRows()}    
             </div>
         </div>)
