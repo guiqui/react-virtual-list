@@ -22,48 +22,61 @@ npm install react-vlist
 ```
 ## Configuration
 
+This is an example with a minimal use of the VirtualList component
 ```javascript
-    //1) Import the package
-    import Vlist from 'react-vlist'
-    //2) Create an Item renderer Component
-    class ItemRenderer extends Component{
-        constructor(props){    
-            super(props)
-        }
+import React from "react";
+import ReactDOM from "react-dom";
+import VirtualList from "react-vlist";
+import "./Application.css";
 
-
-        render(){
-            return (
-            <div  className='itemRenderer' style={this.props.style} >
-                <img className="itemImage" src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1" />
-                <div className="itemTitleContainer">  
-                    <div className="itemTitle">{this.props.data.name}</div>
-                    <div className="itemContent">{this.props.data.name}</div>
-                </div>
-            </div>)
-        }
-    }
-    //3) Use the Vlist in a component
-    class App extends Component{
-        constructor(props){
-            super(props)
-    //4) Create Some data
-            this.data = []
-            for (let i=0;i<1000;i++){
-            this.data.push({name: `Row ${i}`});
-            }
-        }
-
-
-        render(){
-    //5) Use the component 
-            return (
-            <div className="app-container">
-            <h1>Virtual List</h1>
-                <VirtualList className="list" data={this.data} itemheight={50} itemRenderer={ItemRenderer}/>
+const data = [{ name: "hola" }];
+for (let i = 0; i < 1000; i++) {
+  data.push({ name: `Row ${i}` });
+}
+function App() {
+  return (
+    <div className="app-container">
+      <h1>Virtual List</h1>
+      <VirtualList
+        className="list"
+        data={data}
+        itemheight={50}
+        renderItems={(item, index, style) => (
+          <div className="itemRenderer" key={index} style={style}>
+            <img
+              className="itemImage"
+              src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1"
+            />
+            <div className="itemTitleContainer">
+              <div className="itemTitle">{item.name}</div>
+              <div className="itemContent">{item.name}</div>
             </div>
+          </div>
+        )}
+      />
+    </div>
+  );
+}
 
-            )
-        }
-    }
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
 ```
+
+So the first thing is to create some data
+```javascript
+const data = [{ name: "hola" }];
+for (let i = 0; i < 1000; i++) {
+  data.push({ name: `Row ${i}` });
+}
+```
+The next thing we implement a render method that use the list.
+The list recive 3 params:
+1)data: Data is an array of elements to be render by the list
+2)itemheight: is the height of each item of the list
+3)renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
+  The function recive the following params:
+  Item:that is the data item.
+  index:The cardinal order of the element
+  style:The style to be applied to position the element 
+  This function returns:
+  A react component.(Make sure you assign the style to the returning component so it get position properly)

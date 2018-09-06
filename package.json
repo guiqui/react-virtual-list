@@ -1,6 +1,6 @@
 {
   "name": "react-vlist",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A virtual list component with customizable item renderers",
   "main": "dist/index.js",
   "scripts": {
