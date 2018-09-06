@@ -15,7 +15,8 @@ It can be easly customize by providing its own item renderer.
 ## Demo
 Check out a working demo [here](https://guiqui.github.io/react-virtual-list/index.html)
 ## Some Demo Code
-[![Edit 5xnwjvjxwx](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/5xnwjvjxwx)
+- [![Edit 5xnwjvjxwx](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/5xnwjvjxwx) Simple Demo.
+- [![Edit pj5jpm577](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pj5jpm577) Demo with select Item,highlight selected and on click handler.
 ## Installation
 ```javascript
 npm install react-vlist
@@ -70,13 +71,35 @@ for (let i = 0; i < 1000; i++) {
 }
 ```
 The next thing we implement a render method that use the list.
+
+```javascript
+ <VirtualList
+        className="list"
+        data={data}
+        itemheight={50}
+        renderItems={(item, index, style) => (
+          <div className="itemRenderer" key={index} style={style}>
+            <img
+              className="itemImage"
+              src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1"
+            />
+            <div className="itemTitleContainer">
+              <div className="itemTitle">{item.name}</div>
+              <div className="itemContent">{item.name}</div>
+            </div>
+          </div>
+        )}
+      />
+```
+
+
 The list recive 3 params:
-1)data: Data is an array of elements to be render by the list
-2)itemheight: is the height of each item of the list
-3)renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
-  The function recive the following params:
-  Item:that is the data item.
-  index:The cardinal order of the element
-  style:The style to be applied to position the element 
-  This function returns:
-  A react component.(Make sure you assign the style to the returning component so it get position properly)
+- data: Data is an array of elements to be render by the list
+- itemheight: is the height of each item of the list
+- renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
+  * The function recive the following params:
+    * item:A element from the data object.
+    * index:The cardinal order of the element, it positio in the data array.
+    * style:The style to be applied to position the element. 
+  * This function returns:
+    * A react component.(Make sure you assign the style to the returning component so it get position properly)
