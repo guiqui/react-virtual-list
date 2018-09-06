@@ -71,12 +71,12 @@ for (let i = 0; i < 1000; i++) {
 ```
 The next thing we implement a render method that use the list.
 The list recive 3 params:
-1)data: Data is an array of elements to be render by the list
-2)itemheight: is the height of each item of the list
-3)renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
-  The function recive the following params:
-  Item:that is the data item.
-  index:The cardinal order of the element
-  style:The style to be applied to position the element 
-  This function returns:
-  A react component.(Make sure you assign the style to the returning component so it get position properly)
+- data: Data is an array of elements to be render by the list
+- itemheight: is the height of each item of the list
+- renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
+  - The function recive the following params:
+  * item:that is the data item.
+  * index:The cardinal order of the element
+  *style:The style to be applied to position the element 
+  -This function returns:
+  * A react component.(Make sure you assign the style to the returning component so it get position properly)
