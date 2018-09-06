@@ -71,13 +71,35 @@ for (let i = 0; i < 1000; i++) {
 }
 ```
 The next thing we implement a render method that use the list.
+
+```javascript
+ <VirtualList
+        className="list"
+        data={data}
+        itemheight={50}
+        renderItems={(item, index, style) => (
+          <div className="itemRenderer" key={index} style={style}>
+            <img
+              className="itemImage"
+              src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1"
+            />
+            <div className="itemTitleContainer">
+              <div className="itemTitle">{item.name}</div>
+              <div className="itemContent">{item.name}</div>
+            </div>
+          </div>
+        )}
+      />
+```
+
+
 The list recive 3 params:
 - data: Data is an array of elements to be render by the list
 - itemheight: is the height of each item of the list
 - renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
   * The function recive the following params:
-    * item:that is the data item.
-    * index:The cardinal order of the element
-    * style:The style to be applied to position the element 
+    * item:A element from the data object.
+    * index:The cardinal order of the element, it positio in the data array.
+    * style:The style to be applied to position the element. 
   * This function returns:
     * A react component.(Make sure you assign the style to the returning component so it get position properly)
