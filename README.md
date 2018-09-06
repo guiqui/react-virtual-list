@@ -74,9 +74,9 @@ The list recive 3 params:
 - data: Data is an array of elements to be render by the list
 - itemheight: is the height of each item of the list
 - renderItems: It is a hight order function where you can set what component is to be use to render the list elements.
-  - The function recive the following params:
-  * item:that is the data item.
-  * index:The cardinal order of the element
-  *style:The style to be applied to position the element 
-  -This function returns:
-  * A react component.(Make sure you assign the style to the returning component so it get position properly)
+  * The function recive the following params:
+    * item:that is the data item.
+    * index:The cardinal order of the element
+    * style:The style to be applied to position the element 
+  * This function returns:
+    * A react component.(Make sure you assign the style to the returning component so it get position properly)
