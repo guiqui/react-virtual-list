@@ -27,6 +27,41 @@ html{
     border-radius: 10px;
     box-shadow: 2px 2px silver;
 }
+.itemRenderer{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: solid 1px silver;
+    background-color: white;
+    color: silver;
+    width:100%;
+    padding: 5px;
+}
+.itemRenderer:hover{
+    border:solid 1px blue
+}
+.itemImage{
+    flex: 1 0 40px;
+    border-radius: 30px;
+    width: 40px;
+}
+.itemTitleContainer{
+    flex: 1 1 auto;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    padding: 4px;
+}
 
+.itemTitle{
+    color:grey;
+    font-size: 14px;
+    align-self: center;
+}
+.itemContent{
+    color:silver;
+    font-size: 10px;
+    align-self: center;
+}
 
 

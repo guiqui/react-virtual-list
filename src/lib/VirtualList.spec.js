@@ -10,6 +10,9 @@ function TestItemRenderer(props){
     return <div  style={props.style}>{props.data.name}</div>
 }    
 
+const renderItems= (item,index,style)=><div data={item} key={index} style={style}>{item.name} </div>
+    
+
 describe('VirtualListCore Initialise propertly ',()=>{
     it ('It mount properly when no property is given',()=>{
         const wrapper = shallow(<VirtualListCore />);
@@ -24,7 +27,7 @@ describe('VirtualListCore Initialise propertly ',()=>{
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
     })
     it('Render propertly when adding data',()=>{
-        const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}/>);
+        const wrapper = shallow(<VirtualListCore data={data} itemheight={30} size={{height:300}} renderItems={renderItems}/>);
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12);
         let count=0;
         wrapper.find('#vlistItemContainer').children().forEach((node) => {
@@ -39,7 +42,7 @@ describe('VirtualListCore Initialise propertly ',()=>{
 
 describe('Test Changing Data ',()=>{
     it ('We should render children when changing data',()=>{
-        const wrapper = shallow(<VirtualListCore itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        const wrapper = shallow(<VirtualListCore itemheight={30} size={{height:300}} renderItems={renderItems}></VirtualListCore>);
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(0)
         wrapper.setProps({ data: data});
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
@@ -49,7 +52,7 @@ describe('Test Changing Data ',()=>{
 
 describe('Test Changing Size ',()=>{
     it ('We should render children when changing sizes',()=>{
-        const wrapper = shallow(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        const wrapper = shallow(<VirtualListCore data= {data} itemheight={30} size={{height:300}} renderItems={renderItems}></VirtualListCore>);
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(12)
         wrapper.setProps({ size: {height:600}});
         expect(wrapper.find('#vlistItemContainer').children()).toHaveLength(22)
@@ -68,7 +71,7 @@ describe('Test Changing Size ',()=>{
 
 describe('Test scrolling',()=>{
     it ('Children should update position',()=>{
-        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} renderItems={renderItems}></VirtualListCore>);
         wrapper.simulate('scroll',{target:{id:"vListViewPort",scrollTop:60}})
         let count=2;
         wrapper.find('#vlistItemContainer').children().forEach((node) => {
@@ -80,7 +83,7 @@ describe('Test scrolling',()=>{
     })
 
     it ('Event from other target Should not trigger scroll',()=>{
-        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} itemRenderer={TestItemRenderer}></VirtualListCore>);
+        const wrapper = mount(<VirtualListCore data= {data} itemheight={30} size={{height:300}} renderItems={renderItems}></VirtualListCore>);
         wrapper.simulate('scroll',{target:{id:"other",scrollTop:60}})
         let count=0;
         wrapper.find('#vlistItemContainer').children().forEach((node) => {

@@ -38,19 +38,14 @@ export class VirtualListCore extends Component{
 
     renderRows(){
         let result=[];
-        if (!this.props.itemRenderer)
-            return result;
         if (!this.props.data)
             return result;
+        if (!this.props.renderItems)
+            return result;    
         for (let i=this.start;i<this.end+1;i++){
-           
-            let item=this.props.data[i];
-            let objProperties={
-                key:i,
-                style:{position: 'absolute',top:i*this.props.itemheight,height:this.props.itemheight},
-                data:item
-            }
-            result.push(React.createElement(this.props.itemRenderer,objProperties));
+            let style ={position: 'absolute',top:i*this.props.itemheight,height:this.props.itemheight}
+            let element=this.props.renderItems(this.props.data[i],i,style);
+            result.push( this.props.renderItems(this.props.data[i],i,style));
         }
         return result;
     }
