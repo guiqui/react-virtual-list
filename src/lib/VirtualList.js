@@ -9,7 +9,7 @@ export class VirtualListCore extends Component{
         this.state={
             currentIndx:0       
         }
-        let calcHeight=this.props.data&&this.props.itemheight?this.props.data.length * this.props.itemheight:0;
+        let calcHeight=this.props.data && this.props.itemheight?this.props.data.length * this.props.itemheight:0;
         this.containerStyle={height:calcHeight}
     }
 
