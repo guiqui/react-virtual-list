@@ -15,8 +15,8 @@ It can be easly customize by providing its own item renderer.
 ## Demo
 Check out a working demo [here](https://guiqui.github.io/react-virtual-list/index.html)
 ## Some Demo Code
-[![Edit 5xnwjvjxwx](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/5xnwjvjxwx) Simple Demo.
-[![Edit pj5jpm577](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pj5jpm577) Demo with select Item,highlight selected and on click handler.
+- [![Edit 5xnwjvjxwx](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/5xnwjvjxwx) Simple Demo.
+- [![Edit pj5jpm577](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pj5jpm577) Demo with select Item,highlight selected and on click handler.
 ## Installation
 ```javascript
 npm install react-vlist
