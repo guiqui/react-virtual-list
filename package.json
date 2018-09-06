@@ -1,6 +1,6 @@
 {
   "name": "react-vlist",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A virtual list component with customizable item renderers",
   "main": "dist/index.js",
   "scripts": {
@@ -51,5 +51,6 @@
   },
   "author": "Guillermo  Quiros",
   "license": "MIT",
-  "keywords":["react","list","itemRender","virtual","virtualize"]
+  "keywords":["react","list","itemRender","virtual","virtualize"],
+  "homepage":"https://github.com/guiqui/react-virtual-list"
 }
