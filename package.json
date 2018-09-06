@@ -1,6 +1,6 @@
 {
   "name": "react-vlist",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A virtual list component with customizable item renderers",
   "main": "dist/index.js",
   "scripts": {
@@ -50,9 +50,5 @@
     "webpack-dev-server": "^3.1.4"
   },
   "author": "Guillermo  Quiros",
-  "license": "MIT",
-  "dependencies": {
-    "jest-styled-components": "^6.1.1",
-    "styled-components": "^3.4.5"
-  }
+  "license": "MIT"
 }

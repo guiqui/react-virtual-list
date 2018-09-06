@@ -10,9 +10,14 @@ class App extends Component{
     for (let i=0;i<1000;i++){
       this.data.push({name: `Row ${i}`});
     }
+    this.state={
+      selectedItem:null
+    }
   }
 
-
+  onItemClick=(item)=>{
+    this.setState({selectedItem:item})
+  }
   render(){
 
     return (
@@ -21,7 +26,10 @@ class App extends Component{
        
         <VirtualList className="list" data={this.data} itemheight={50} renderItems={
           (item,index,style)=>
-              <div  className='itemRenderer' key={index} style={style}>
+              <div  className={item==this.state.selectedItem?'itemRenderer itemRendererSelected':'itemRenderer'} 
+                    key={index} 
+                    style={style} 
+                    onClick={(e)=>this.onItemClick(item)}>
                       <img className="itemImage" src="https://i.stack.imgur.com/4QkvN.jpg?s=64&g=1" />
                       <div className="itemTitleContainer">  
                           <div className="itemTitle">{item.name}</div>
@@ -29,6 +37,11 @@ class App extends Component{
                       </div>
               </div>
           }/>
+          <br />
+          {this.state.selectedItem?(<div>{`Selected Record ${this.state.selectedItem.name}`}</div>):(<div>{`No Selected Record`}</div>)
+
+          }
+          
       </div>
 
     )
