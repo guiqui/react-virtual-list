@@ -12,6 +12,13 @@ export class VirtualListCore extends Component{
         let calcHeight=this.props.data && this.props.itemheight?this.props.data.length * this.props.itemheight:0;
         this.containerStyle={height:calcHeight}
     }
+    shouldComponentUpdate(nextProps, nextState){
+        if(nextProps.data!=this.props.data){
+            let calcHeight=nextProps.data && this.props.itemheight?nextProps.data.length * this.props.itemheight:0;
+            this.containerStyle={height:calcHeight}
+        }
+        return true
+    }
 
     scollPos=(e)=>{
         if (e.target.id !=="vListViewPort")
@@ -51,10 +58,11 @@ export class VirtualListCore extends Component{
     }
     
     render(){
+        let style=this.props.style?this.props.style:{};
         this.recalculate();
         return (
         <div id="vListViewPort"  className={this.props.className?this.props.className:''}  
-            style={ {position: 'relative',overflow: 'scroll'}} 
+            style={ {position: 'relative',overflow: 'auto',...style}} 
             onScroll={this.scollPos} >
             <div id="vlistItemContainer" className="itemContainer" style={this.containerStyle}>
                 {this.renderRows()}    
