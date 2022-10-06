@@ -8,6 +8,9 @@
 This is a list component that support viartualize rendering.
 It can be easly customize by providing its own item renderer.
 
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/gquiman)
+
+
 - Super fast. 😛
 - Responsive Components!
 - Easy to use.
