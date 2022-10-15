@@ -107,3 +107,9 @@ The list recive 3 params:
     * style:The style to be applied to position the element. 
   * This function returns:
     * A react component.(Make sure you assign the style to the returning component so it get position properly)
+
+
+## Other Free Apps we have created:
+- [Profile Me](https://profile.softcloud.pro/) - Creates Professional Profile pictures.
+- [Background RM](https://rmbackground.softcloud.pro/) - Remove pictures Background.
+- [MetersApp](https://app.meters.app/login) - Create Quotes using measures from floorplan.
