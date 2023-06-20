@@ -12,8 +12,8 @@
     "prepublish": "rm -rf ./dist && npm run build"
   },
   "peerDependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -26,7 +26,6 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "react-sizeme": "^2.5.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
@@ -39,8 +38,9 @@
     "jest-fetch-mock": "^1.6.4",
     "jest-junit": "^5.0.0",
     "json-loader": "^0.5.7",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-sizeme": "^2.5.2",
     "sinon": "^6.2.0",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
@@ -51,6 +51,12 @@
   },
   "author": "Guillermo  Quiros",
   "license": "MIT",
-  "keywords":["react","list","itemRender","virtual","virtualize"],
-  "homepage":"https://github.com/guiqui/react-virtual-list"
+  "keywords": [
+    "react",
+    "list",
+    "itemRender",
+    "virtual",
+    "virtualize"
+  ],
+  "homepage": "https://github.com/guiqui/react-virtual-list"
 }
